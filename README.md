@@ -31,10 +31,10 @@
 
 <details><summary>Tap On Me For Environment Variable</summary>
 
-- `API_ID` : Goto [my.telegram.org](https://my.telegram.org) to obtain this.
-- `API_HASH` : Goto [my.telegram.org](https://my.telegram.org) to obtain this.
-- `BOT_TOKEN` : Get the bot token from [@BotFather](https://telegram.dog/BotFather)
-- `BIN_CHANNEL` : Create a new channel (private/public), add [@missrose_bot](https://telegram.dog/MissRose_bot) as admin to the channel and type /id. Now copy paste the ID into this field.
+- `API_ID` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
+- `API_HASH` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
+- `BOT_TOKEN` : Get From [BotFather](https://youtu.be/aJILCCXfNVM)
+- `BIN_CHANNEL` : Create a new channel (private/public) and add that channel id in this field
 - `OWNER_USERNAME` : U should be knowing it afterall it's your username dont remember it? just go to settings!
 - `OWNER_ID` : Your Telegram User ID
 - `DATABASE_URL` : MongoDB URI get from here.
