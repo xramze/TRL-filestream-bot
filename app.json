@@ -16,7 +16,7 @@
     "repository": "https://github.com/TechifyBots/file-stream-bot",
     "success_url": "/",
     "logo": "https://i.postimg.cc/jjgVnXrV/20231106-110427.png",
-    "website": "https://rahulreviewsyt.blogspot.com/",
+    "website": "https://TechifyBots.blogspot.com/",
     "env": {
         "ENV": {
             "description": "Set this to True if you don't want to crash the bot",
