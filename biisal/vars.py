@@ -32,17 +32,17 @@ class Var(object):
     APP_NAME = None
     OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'itsz_ram'))
     if 'DYNO' in environ:
-        ON_HEROKU = True
+        ON_KOYEB = True
         APP_NAME = str(getenv('APP_NAME')) #dont need to fill anything here
     
     else:
-        ON_HEROKU = False
+        ON_KOYEB = False
     FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',True))
     if HAS_SSL:
-        URL = "https://corporate-andee-tamilmov1-373fa169.koyeb.app/".format(FQDN)
+        URL = "https://tamilrocker-stream.koyeb.app/".format(FQDN)
     else:
-        URL = "https://corporate-andee-tamilmov1-373fa169.koyeb.app/".format(FQDN)
+        URL = "https://tamilrocker-stream.koyeb.app/".format(FQDN)
     DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://trl:trl@cluster0.ucrsa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', 'TamilRockers_LinkZz')) 
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "")).split()))   
