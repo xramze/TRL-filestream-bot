@@ -32,11 +32,11 @@ class Var(object):
     APP_NAME = None
     OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'itsz_ram'))
     if 'DYNO' in environ:
-        ON_KOYEB = True
+        ON_HEROKU = True
         APP_NAME = str(getenv('APP_NAME')) #dont need to fill anything here
     
     else:
-        ON_KOYEB = False
+        ON_HEROKU = False
     FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',True))
     if HAS_SSL:
