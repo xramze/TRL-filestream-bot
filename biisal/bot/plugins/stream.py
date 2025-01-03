@@ -46,7 +46,7 @@ msg_text ="""
 
 <b>⚠️ ᴛʜɪꜱ ʟɪɴᴋ ᴡɪʟʟ ᴇxᴘɪʀᴇ ᴀꜰᴛᴇʀ 𝟼 ʜᴏᴜʀꜱ</b>
 
-<b>❇️ ʙʏ : @TechifyBots</b>"""
+<b>❇️ ʙʏ : @TamilRockers_LinkZz</b>"""
 
 @StreamBot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
 async def private_receive_handler(c: Client, m: Message):
@@ -62,14 +62,14 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="You are banned!\n\n  Contact Developer [Rahul](https://telegram.me/CallOwnerBot) he will help you.",
+                    text="You are banned!\n\n  Contact Developer [itsz_ram](https://telegram.me/TRL_Admin_bot) he will help you.",
                     disable_web_page_preview=True
                 )
                 return 
         except UserNotParticipant:
             await c.send_photo(
                 chat_id=m.chat.id,
-                photo="https://graph.org/file/a8095ab3c9202607e78ad.jpg",
+                photo="https://envs.sh/r5S.jpg",
                 caption="""<b>ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜꜱᴇ ᴍᴇ</b>""",
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -84,7 +84,7 @@ async def private_receive_handler(c: Client, m: Message):
             await m.reply_text(e)
             await c.send_message(
                 chat_id=m.chat.id,
-                text="sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ. ᴄᴏɴᴛᴀᴄᴛ ᴍʏ [ʙᴏss](https://telegram.me/CallOwnerBot)",
+                text="sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ. ᴄᴏɴᴛᴀᴄᴛ ᴍʏ [ʙᴏss](https://telegram.me/TRL_Admin_bot)",
                 disable_web_page_preview=True
             )
             return
