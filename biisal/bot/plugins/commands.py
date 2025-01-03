@@ -16,7 +16,7 @@ db = Database(Var.DATABASE_URL, Var.name)
 from pyrogram.types import ReplyKeyboardMarkup
 
 
-TRLBots = <b>ʜᴇʏ ᴅᴜᴅᴇ"""{}♥️</b>,
+TRLBots = <b>ʜᴇʏ ᴅᴜᴅᴇ"""{}</b>,
 
 <b>𝖲𝖾𝗇𝖽 𝗆𝖾 𝖺 𝖿𝗂𝗅𝖾 𝗈𝗋 𝖺𝖽𝖽 𝗆𝖾 𝖺𝗌 𝖺𝗇 𝖺𝖽𝗆𝗂𝗇 𝗍𝗈 𝖺𝗇𝗒 𝖼𝗁𝖺𝗇𝗇𝖾𝗅 𝗍𝗈 𝗂𝗇𝗌𝗍𝖺𝗇𝗍𝗅𝗒 𝗀𝖾𝗇𝖾𝗋𝖺𝗍𝖾 𝗉𝖾𝗋𝗆𝖺𝗇𝖾𝗇𝗍 𝗅𝗂𝗇𝗄𝗌.</b>
 
