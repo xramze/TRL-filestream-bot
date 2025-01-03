@@ -1,6 +1,6 @@
-# (c) @adarsh-goel
-# (c) @biisal
-# (c) TechifyBots
+# (c) @itszz_ran
+# (c) @itsz_ram
+# (c) TRLBots
 import os
 import time
 import string
@@ -8,10 +8,10 @@ import random
 import asyncio
 import aiofiles
 import datetime
-from biisal.utils.broadcast_helper import send_msg
-from biisal.utils.database import Database
-from biisal.bot import StreamBot
-from biisal.vars import Var
+from TRL.utils.broadcast_helper import send_msg
+from TRl.utils.database import Database
+from TRL.bot import StreamBot
+from TRL.vars import Var
 from pyrogram import filters, Client
 from pyrogram.types import Message
 db = Database(Var.DATABASE_URL, Var.name)
