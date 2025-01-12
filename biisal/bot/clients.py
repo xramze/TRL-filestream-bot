@@ -3,8 +3,8 @@ import logging
 from pyrogram import Client
 
 from biisal.utils.config_parser import TokenParser
-from . import multi_clients, work_loads, StreamBot
-from ..vars import Var
+from biisal.bot import multi_clients, work_loads, StreamBot
+from biisal.vars import Var
 
 
 async def initialize_clients():

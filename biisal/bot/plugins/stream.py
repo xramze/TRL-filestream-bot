@@ -10,7 +10,7 @@ from pyrogram import filters, Client
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
-from ...utils.shortener import get_shortlink
+from biisal.utils.shortener import get_shortlink
 from biisal.utils.file_properties import get_name, get_hash, get_media_file_size
 db = Database(Var.DATABASE_URL, Var.name)
 

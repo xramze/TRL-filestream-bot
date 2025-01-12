@@ -8,7 +8,7 @@ import logging
 import aiohttp
 import jinja2
 
-from .shortener import get_shortlink
+from biisal.utils.shortener import get_shortlink
 
 async def render_page(id, secure_hash, src=None):
     file = await StreamBot.get_messages(int(Var.BIN_CHANNEL), int(id))
