@@ -1,7 +1,6 @@
 # (c) TechifyBots (c) biisal (c) adarsh-goel
 from pyrogram import Client
 from ..vars import Var
-from os import getcwd
 
 StreamBot = Client(
     name='Web Streamer',
@@ -14,4 +13,3 @@ StreamBot = Client(
 
 multi_clients = {}
 work_loads = {}
-

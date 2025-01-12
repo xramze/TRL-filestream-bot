@@ -4,10 +4,11 @@ from biisal.utils.human_readable import humanbytes
 from biisal.utils.file_properties import get_file_ids
 from biisal.server.exceptions import InvalidHash
 import urllib.parse
-import aiofiles
 import logging
 import aiohttp
 import jinja2
+
+from .shortener import get_shortlink
 
 async def render_page(id, secure_hash, src=None):
     file = await StreamBot.get_messages(int(Var.BIN_CHANNEL), int(id))
@@ -37,9 +38,14 @@ async def render_page(id, secure_hash, src=None):
 
     file_name = file_data.file_name.replace("_", " ")
 
+    file_store = f'https://t.me/{StreamBot.me.username}?start={id}'
+    if Var.SHORTLINK:
+        file_store = get_shortlink(file_store)
+
     return template.render(
         file_name=file_name,
         file_url=src,
         file_size=file_size,
+        file_store=file_store,
         file_unique_id=file_data.unique_id,
     )

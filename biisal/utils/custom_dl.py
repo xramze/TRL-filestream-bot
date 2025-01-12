@@ -1,4 +1,3 @@
-import math
 import asyncio
 import logging
 from biisal.vars import Var
@@ -19,12 +18,12 @@ class ByteStreamer:
             client: the client that the cache is for.
             cached_file_ids: a dict of cached file IDs.
             cached_file_properties: a dict of cached file properties.
-        
+
         functions:
             generate_file_properties: returns the properties for a media of a specific message contained in Tuple.
             generate_media_session: returns the media session for the DC that contains the media file.
             yield_file: yield a file from telegram servers for streaming.
-            
+
         This is a modified version of the <https://github.com/eyaadh/megadlbot_oss/blob/master/mega/telegram/utils/custom_download.py>
         Thanks to Eyaadh <https://github.com/eyaadh>
         """
@@ -43,7 +42,7 @@ class ByteStreamer:
             await self.generate_file_properties(id)
             logging.debug(f"Cached file properties for message with ID {id}")
         return self.cached_file_ids[id]
-    
+
     async def generate_file_properties(self, id: int) -> FileId:
         """
         Generates the properties of a media file on a specific message.
@@ -220,7 +219,7 @@ class ByteStreamer:
             logging.debug("Finished yielding file with {current_part} parts.")
             work_loads[index] -= 1
 
-    
+
     async def clean_cache(self) -> None:
         """
         function to clean the cache to reduce memory usage

@@ -1,20 +1,17 @@
-# (c) TRLBots
-
-import random
-from biisal.bot import StreamBot
-from biisal.vars import Var
 import logging
-logger = logging.getLogger(__name__)
-from biisal.bot.plugins.stream import MY_PASS
-from biisal.utils.human_readable import humanbytes
+import random
+
 from biisal.utils.database import Database
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
-from biisal.utils.file_properties import get_name, get_hash, get_media_file_size
-db = Database(Var.DATABASE_URL, Var.name)
-from pyrogram.types import ReplyKeyboardMarkup
 
+from biisal.bot import StreamBot
+from biisal.vars import Var
+
+db = Database(Var.DATABASE_URL, Var.name)
+
+logger = logging.getLogger(__name__)
 
 TechifyBots = """{},
 
@@ -56,16 +53,25 @@ async def start(b, m):
                         ]
                     ]
                 ),
-                
+
             )
              return
         except Exception:
             await b.send_message(
                 chat_id=m.chat.id,
                 text="<b>ꜱᴏᴍᴇᴛʜɪɴɢ  ᴡᴇɴᴛ  ᴡʀᴏɴɢ  <a href='https://telegram.me/TechifySupport'>ᴄʟɪᴄᴋ  ʜᴇʀᴇ  ꜰᴏʀ  ꜱᴜᴘᴘᴏʀᴛ</a></b>",
-                
+
                 disable_web_page_preview=True)
             return
+
+    if len(m.command) > 1:
+        try:
+            msg = await StreamBot.get_messages(Var.BIN_CHANNEL, int(m.command[1]))
+            await msg.copy(m.from_user.id)
+        except:
+            await m.reply_text('Something wrong when getting the file!', True)
+        return
+
     await StreamBot.send_photo(
     chat_id=m.chat.id,
     photo=random.choice(Var.PICS),
@@ -113,7 +119,7 @@ async def help_cd(b, m):
                         ]
                     ]
                 ),
-                
+
             )
              return
         except Exception:
@@ -215,7 +221,7 @@ async def cb_handler(client, query):
         await query.message.edit_caption(
             caption=f"<b>ᴍʏ ɴᴀᴍᴇ : <a href='https://telegram.me/Trl_Filebot'>ᴛʀʟ ғɪʟᴇ sᴛʀᴇᴀᴍ ʙᴏᴛ</a>\nʜᴏsᴛᴇᴅ ᴏɴ : ᴋᴏʏᴇʙ\nᴅᴀᴛᴀʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ\nʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 𝟹\nᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href='https://telegram.me/TRL_Admin_bot'>𝐈𝛕ᷟ‌𝚣ꙴ ʀᴀᴍ™</a></b>",
             reply_markup=InlineKeyboardMarkup(
-                [[ 
+                [[
                      InlineKeyboardButton("ʜᴏᴍᴇ", callback_data="start"),
                      InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")
                   ]]
@@ -225,7 +231,7 @@ async def cb_handler(client, query):
         await query.message.edit_caption(
             caption=f"<blockquote>❤️‍🔥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐢𝐧 𝐃𝐨𝐧𝐚𝐭𝐢𝐨𝐧</blockquote>\n\n<b><i>💞  ɪꜰ ʏᴏᴜ ʟɪᴋᴇ ᴏᴜʀ ʙᴏᴛ ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ ₹𝟷𝟶, ₹𝟸𝟶, ₹𝟻𝟶, ₹𝟷𝟶𝟶, ᴇᴛᴄ.</i></b>\n\n❣️ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛𝑠 𝑎𝑟𝑒 𝑟𝑒𝑎𝑙𝑙𝑦 𝑎𝑝𝑝𝑟𝑒𝑐𝑖𝑎𝑡𝑒𝑑 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑖𝑛 𝑏𝑜𝑡 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡\n\n💖 𝐔𝐏𝐈 𝐈𝐃 : <code>itszram@axl</code>",
             reply_markup=InlineKeyboardMarkup(
-                [[ 
+                [[
                      InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"),
                      InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")
                   ]]
@@ -273,7 +279,7 @@ async def cb_handler(client, query):
             except Exception as e:
                 await query.message.edit(f"<b>sʀʏ ɪ ɢᴏᴛ ᴛʜɪs ᴇʀʀᴏʀ : {e}</b>")
         else:
-            await query.message.edit(f"<b>Tʜᴇ ᴘʀᴏᴄᴇss ᴡᴀs ɴᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ʙᴇᴄᴀᴜsᴇ ᴛʜᴇ ᴜsᴇʀ ɪᴅ ᴡᴀs ɴᴏᴛ ᴠᴀʟɪᴅ, ᴏʀ ᴘᴇʀʜᴀᴘs ɪᴛ ᴡᴀs ᴀ ᴄʜᴀɴɴᴇʟ ɪᴅ</b>")   
+            await query.message.edit(f"<b>Tʜᴇ ᴘʀᴏᴄᴇss ᴡᴀs ɴᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ʙᴇᴄᴀᴜsᴇ ᴛʜᴇ ᴜsᴇʀ ɪᴅ ᴡᴀs ɴᴏᴛ ᴠᴀʟɪᴅ, ᴏʀ ᴘᴇʀʜᴀᴘs ɪᴛ ᴡᴀs ᴀ ᴄʜᴀɴɴᴇʟ ɪᴅ</b>")
     elif data.startswith('NoUnbanAlert'):
         user_id =(data.split("_")[1])
         user_id = int(user_id.replace(' ' , ''))

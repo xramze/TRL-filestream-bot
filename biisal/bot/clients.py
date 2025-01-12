@@ -1,11 +1,10 @@
-# (c) TechifyBots (c) biisal (c) adarsh-goel
-
 import asyncio
 import logging
-from ..vars import Var
 from pyrogram import Client
+
 from biisal.utils.config_parser import TokenParser
 from . import multi_clients, work_loads, StreamBot
+from ..vars import Var
 
 
 async def initialize_clients():
@@ -15,7 +14,7 @@ async def initialize_clients():
     if not all_tokens:
         print("No additional clients found, using default client")
         return
-    
+
     async def start_client(client_id, token):
         try:
             print(f"Starting - Client {client_id}")
@@ -35,7 +34,7 @@ async def initialize_clients():
             return client_id, client
         except Exception:
             logging.error(f"Failed starting Client - {client_id} Error:", exc_info=True)
-    
+
     clients = await asyncio.gather(*[start_client(i, token) for i, token in all_tokens.items()])
     multi_clients.update(dict(clients))
     if len(multi_clients) != 1:

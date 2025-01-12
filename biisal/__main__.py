@@ -1,7 +1,3 @@
-# (c) TechifyBots
-# (c) biisal
-# (c) adars h-goel
-import os
 import sys
 import glob
 import asyncio
@@ -78,7 +74,7 @@ async def start_services():
     if Var.ON_HEROKU:
         print('                        app runnng on =>> {}'.format(Var.FQDN))
     print('---------------------------------------------------------------------------------------------------------')
-    try: 
+    try:
         await StreamBot.send_message(chat_id=Var.OWNER_ID[0] ,text='<b>ʙᴏᴛ ʀᴇsᴛᴀʀᴛᴇᴅ !!</b>')
     except Exception as e:
         print(f'got this err to send restart msg to owner : {e}')

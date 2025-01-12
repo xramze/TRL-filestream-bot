@@ -1,12 +1,6 @@
-#(c) Adarsh-Goel
-#(c) @biisal
-#(c) TechifyBots
 import os
 import asyncio
-import requests
-import string
-import random
-from asyncio import TimeoutError
+
 from biisal.bot import StreamBot
 from biisal.utils.database import Database
 from biisal.utils.human_readable import humanbytes
@@ -16,22 +10,10 @@ from pyrogram import filters, Client
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
+from ...utils.shortener import get_shortlink
 from biisal.utils.file_properties import get_name, get_hash, get_media_file_size
 db = Database(Var.DATABASE_URL, Var.name)
 
-def generate_random_alphanumeric(): 
-    """Generate a random 8-letter alphanumeric string.""" 
-    characters = string.ascii_letters + string.digits 
-    random_chars = ''.join(random.choice(characters) for _ in range(8)) 
-    return random_chars 
-
-def get_shortlink(url): 
-    rget = requests.get(f"https://{Var.SHORTLINK_URL}/api?api={Var.SHORTLINK_API}&url={url}&alias={generate_random_alphanumeric()}") 
-    rjson = rget.json() 
-    if rjson["status"] == "success" or rget.status_code == 200: 
-        return rjson["shortenedUrl"] 
-    else: 
-        return url
 
 MY_PASS = os.environ.get("MY_PASS", None)
 pass_dict = {}
@@ -65,7 +47,7 @@ async def private_receive_handler(c: Client, m: Message):
                     text="You are banned!\n\n  Contact Developer [itsz_ram](https://telegram.me/TRL_Admin_bot) he will help you.",
                     disable_web_page_preview=True
                 )
-                return 
+                return
         except UserNotParticipant:
             await c.send_photo(
                 chat_id=m.chat.id,

@@ -100,7 +100,7 @@
         },
         "BAN_ALERT": {
             "description": "[Optional] Add the text you wish to display when attempting to get links while banned."
-            
+
         }
     },
     "addons": [],

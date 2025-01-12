@@ -23,7 +23,7 @@
 - Fully modified repo
 - Deploy To Koyeb + Heroku + Railway
 - [Developer support](https://telegram.me/TechifySupport) 24x7
-- And many more... 
+- And many more...
 </details>
 
 
