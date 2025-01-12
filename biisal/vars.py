@@ -51,3 +51,4 @@ class Var(object):
     SHORTLINK = is_enabled('SHORTLINK', True)
     SHORTLINK_URL = getenv('SHORTLINK_URL', 'modijiurl.com')
     SHORTLINK_API = getenv('SHORTLINK_API', '8ac39c0077de07d53e311541b6a9a85b9eb2cb18')
+    SHORT_GET_TELEGRAM = getenv('SHORT_GET_TELEGRAM', False)

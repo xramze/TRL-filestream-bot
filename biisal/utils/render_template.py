@@ -39,7 +39,7 @@ async def render_page(id, secure_hash, src=None):
     file_name = file_data.file_name.replace("_", " ")
 
     file_store = f'https://t.me/{StreamBot.me.username}?start={id}'
-    if Var.SHORTLINK:
+    if Var.SHORT_GET_TELEGRAM and Var.SHORTLINK:
         file_store = get_shortlink(file_store)
 
     return template.render(
