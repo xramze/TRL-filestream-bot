@@ -48,7 +48,7 @@ class Var(object):
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "")).split()))
     BAN_CHNL = list(set(int(x) for x in str(getenv("BAN_CHNL", "")).split()))
     BAN_ALERT = str(getenv('BAN_ALERT' , '<b>ʏᴏᴜʀ ᴀʀᴇ ʙᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴛʜɪs ʙᴏᴛ.ᴄᴏɴᴛᴀᴄᴛ @TRL_Admin_bot ᴛᴏ ʀᴇsᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇ!!</b>'))
-    SHORTLINK = is_enabled('SHORTLINK', False)
+    SHORTLINK = is_enabled('SHORTLINK', True)
     SHORTLINK_URL = getenv('SHORTLINK_URL', 'modijiurl.com')
     SHORTLINK_API = getenv('SHORTLINK_API', '8ac39c0077de07d53e311541b6a9a85b9eb2cb18')
     SHORT_GET_TELEGRAM = getenv('SHORT_GET_TELEGRAM', False)
